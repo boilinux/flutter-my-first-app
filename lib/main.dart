@@ -19,29 +19,52 @@ class _MyAppState extends State<MyApp> {
   final List _questions = [
     {
       'questionText': 'what\'s your favorite color?',
-      'answers': ['black', 'green', 'red', 'orange']
+      'answers': [
+        {'text': 'red', 'score': 3},
+        {'text': 'blue', 'score': 7},
+        {'text': 'black', 'score': 0},
+        {'text': 'green', 'score': 13},
+        {'text': 'orange', 'score': 23},
+      ]
     },
     {
-      'questionText': 'what\'s your favorite games?',
-      'answers': ['game 1', 'game 2', 'game 3', 'game 4', 'game 5']
+      'questionText': 'what\'s your favorite color 2?',
+      'answers': [
+        {'text': 'red', 'score': 3},
+        {'text': 'blue', 'score': 7},
+        {'text': 'black', 'score': 0},
+        {'text': 'green', 'score': 13},
+        {'text': 'orange', 'score': 23},
+      ]
     },
     {
-      'questionText': 'what\'s your favorite movie?',
-      'answers': ['movie 1', 'movie 2', 'movie 3', 'movie 5']
+      'questionText': 'what\'s your favorite color 3?',
+      'answers': [
+        {'text': 'red', 'score': 3},
+        {'text': 'blue', 'score': 7},
+        {'text': 'black', 'score': 0},
+        {'text': 'green', 'score': 13},
+        {'text': 'orange', 'score': 23},
+      ]
     },
     {
-      'questionText': 'what\'s your favorite movie2?',
-      'answers': ['movie 1', 'movie 2', 'movie 3', 'movie 5']
+      'questionText': 'what\'s your favorite color 4?',
+      'answers': [
+        {'text': 'red', 'score': 3},
+        {'text': 'blue', 'score': 7},
+        {'text': 'black', 'score': 0},
+        {'text': 'green', 'score': 13},
+        {'text': 'orange', 'score': 23},
+      ]
     },
-    {
-      'questionText': 'what\'s your favorite movie3?',
-      'answers': ['movie 1', 'movie 2', 'movie 3', 'movie 5']
-    }
   ];
 
-  void _questionIndexFunc() {
+  var _totalScore = 0;
+
+  void _questionIndexFunc(int score) {
     setState(() {
       _questionIndex += 1;
+      _totalScore += score;
     });
     // print(_questionIndex);
   }
@@ -59,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                 questionIndex: _questionIndex,
                 questions: _questions,
               )
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
